@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>cook</title>
+</head>
+<body>
+
+<span>用户名</span><input type="text" name="" id="user">
+<!-- <span>密码</span><input type="text" name="" id="password"> -->
+<button id="dl">登录</button>
+
+<script type="text/javascript">
+	function setCookie(c_name,value,expiredays)
+{
+var exdate=new Date()
+exdate.setDate(exdate.getDate()+expiredays)
+document.cookie=c_name+ "=" +escape(value)+
+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+}
+
+function getCookie(c_name)
+{
+if (document.cookie.length>0)
+  {
+  c_start=document.cookie.indexOf(c_name + "=")
+  if (c_start!=-1)
+    { 
+    c_start=c_start + c_name.length+1 
+    c_end=document.cookie.indexOf(";",c_start)
+    if (c_end==-1) c_end=document.cookie.length
+    return unescape(document.cookie.substring(c_start,c_end))
+    } 
+  }
+return ""
+}
+
+var user=document.getElementById('user').value;
+// var password=document.getElementById('password').value();
+
+// password=getCookie(word);
+function checkCookie()
+{
+user=getCookie(name);
+if (user!=null && user!="")
+  {user=getCookie(name);
+    alert(1)}
+else 
+  {
+alert(2)
+    setCookie('name',user,365)
+  }
+}
+
+document.getElementById('dl').onclick=function(){
+   checkCookie();
+}
+</script>
+	
+</body>
+</html>
